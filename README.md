@@ -27,3 +27,5 @@
 - DTO + validation
 - Gestion d'erreur
 - Typage de toutes les variables avec Typescript
+- Fichier postman avec toutes les routes à la racine du projet
+- Déploiement sur Heroku
