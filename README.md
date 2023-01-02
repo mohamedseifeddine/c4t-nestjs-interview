@@ -4,7 +4,7 @@
 
 1. Créer une authentication avec JWT
   - Création de compte
-  - Login
+  - Connexion
 
 2. CRUD de films contenant les champs suivants :
   - title (120 caractères max)
@@ -27,5 +27,5 @@
 - DTO + validation
 - Gestion d'erreur
 - Typage de toutes les variables avec Typescript
-- Fichier postman avec toutes les routes à la racine du projet
+- Fichier Postman avec toutes les routes à la racine du projet
 - Déploiement sur Heroku
