@@ -30,7 +30,7 @@
 - Only the author can update or delete a movie
 - Admins can update or delete any movie
 
-### 4. End to end test
+### 4. End to end tests
 - Auth
   - Can register using an e-mail and a compliant password
   - Can't register using the same e-mail as someone else
