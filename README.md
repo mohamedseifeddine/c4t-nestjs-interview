@@ -40,24 +40,21 @@
   - Can't login using the wrong e-mail and right password
 
 - Movies
-    - Can retrieve the movie list when not logged in
-    - Can retrieve the movie list when logged in with a user role
-    - Can retrieve the movie list when logged in with an admin role
-    - Can retrieve the movie list of a specific user when not logged in
-
-    - Can't create a movie when not logged in
-    - Can create a movie when logged in with a user role
-    - Can create a movie when logged in with an admin role
-    - Creating a movie should pass the field validators (title, description, etc...)
-
-    - Can update user's own movie
-    - Updating a movie should pass the field validators (title, description, etc...)
-    - Can't update another user's movie when not admin
-    - Can update another user's movie when admin
-
-    - Can delete user's own movie
-    - Can't delete another user's movie when not admin
-    - Can delete another user's movie when admin
+  - Can retrieve the movie list when not logged in
+  - Can retrieve the movie list when logged in with a user role
+  - Can retrieve the movie list when logged in with an admin role
+  - Can retrieve the movie list of a specific user when not logged in
+  - Can't create a movie when not logged in
+  - Can create a movie when logged in with a user role
+  - Can create a movie when logged in with an admin role
+  - Creating a movie should pass the field validators (title, description, etc...)
+  - Can update user's own movie
+  - Updating a movie should pass the field validators (title, description, etc...)
+  - Can't update another user's movie when not admin
+  - Can update another user's movie when admin
+  - Can delete user's own movie
+  - Can't delete another user's movie when not admin
+  - Can delete another user's movie when admin
 
 ### ✅ Conditions
 - Use MongoDB with Mongoose
