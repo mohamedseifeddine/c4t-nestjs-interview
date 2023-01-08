@@ -69,6 +69,8 @@
   - DRY principle
   - KISS principle
   - SOLID principle
+  - SOC principle
+  - LOD principle
 - **⚠️ We will carefully assess how you structured your code and the project, imagine you're working within a team. Demonstrate how rigorous you are.**
 
 **Good luck!** 💪
