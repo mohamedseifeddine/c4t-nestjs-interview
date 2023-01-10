@@ -61,7 +61,6 @@ export abstract class AbstractService<T extends AbstractModel> {
   }
 
   async find(
-    filterQuery: FilterQuery<T>,
     projection?: any | null,
     options?: QueryOptions | null,
     sortField?: any,
@@ -69,7 +68,7 @@ export abstract class AbstractService<T extends AbstractModel> {
     let data;
     try {
       data = await this.model
-        .find(filterQuery, projection, options)
+        .find(projection, options)
         .sort({ ...sortField });
     } catch (e) {
       throw new InternalServerErrorException(e.message);

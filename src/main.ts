@@ -16,8 +16,8 @@ async function bootstrap() {
   // Enable swagger api documentation
   const config = new DocumentBuilder()
     .addBearerAuth()
-    .setTitle('Auction_System_APIs')
-    .setDescription('Auction-APIs-description')
+    .setTitle('C4T_APIs')
+    .setDescription('C4T-APIs-description')
     .setVersion('0.0.1')
     .build();
   const document = SwaggerModule.createDocument(app, config, {

@@ -12,6 +12,7 @@ import * as winston from 'winston';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { JwtStrategy } from './guards/jwt.strategy';
+import { MovieModule } from './movie/movie.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { JwtStrategy } from './guards/jwt.strategy';
     }),
     AuthModule,
     UserModule,
+    MovieModule
   ],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
