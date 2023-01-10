@@ -5,7 +5,7 @@ import { Model, Types } from 'mongoose';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { Logger } from 'winston';
 import { Movie } from './movie.schema';
-import { CreateMovieDto} from './movie.dto';
+import { CreateMovieDto, UpdateMovieDto} from './movie.dto';
 
 
 @Injectable()
@@ -25,6 +25,12 @@ export class MovieService extends AbstractService<Movie> {
     });
 
     return data;
+  }
+  async updateMovie(id:Types.ObjectId, movie: UpdateMovieDto): Promise<Movie> {
+    return await this.findByIdAndUpdate(id, movie, { new: true })
+}
+  async deleteMovie(id:Types.ObjectId): Promise<Movie> {
+      return await this.findByIdAndDelete(id);
   }
 
 }

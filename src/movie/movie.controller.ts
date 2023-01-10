@@ -1,17 +1,19 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  Patch,
   Post,
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { CreateMovieDto} from './movie.dto';
+import { CreateMovieDto, UpdateMovieDto} from './movie.dto';
 import { MovieService } from './movie.service';
 import { ResponseObject } from '../abstract/response.object';
 import { Movie } from './movie.schema';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags,ApiParam } from '@nestjs/swagger';
 
 @Controller('movie')
 @ApiTags('Movie')
@@ -32,9 +34,31 @@ export class MovieController {
     @Body() movie: CreateMovieDto,
     @Request() req,
   ): Promise<ResponseObject<Movie>> {
-    const data = await this.movieService.createMovie(req.auth.user, movie);    
+    const data = await this.movieService.createMovie(req.auth.user, movie);
     return new ResponseObject('MOVIE_CREATED', data);
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Patch('update/:id')
+  @ApiParam({ name: 'id', type: String })
+  async updateMovie(
+    @Request() req,
+    @Body() UpdateMovieDto: UpdateMovieDto,
+  ): Promise<ResponseObject<Movie>> { 
+    const data = await this.movieService.updateMovie(
+      req.params.id,
+      UpdateMovieDto,
+    );
+    return new ResponseObject('MOVIE_UPDATED', data);
+  }
+  @UseGuards(JwtAuthGuard)
+  @Delete('delete/:id')
+  @ApiParam({ name: 'id', type: String })
+  async deleteMovie(
+    @Request() req,
+  ): Promise<ResponseObject<Movie>> { 
+    const data = await this.movieService.deleteMovie(req.params.id);
+    return new ResponseObject('MOVIE_DELETED', data);
+  }
 
 }

@@ -8,9 +8,10 @@ import {
   IsDateString,
   IsUrl,
   IsArray,
+  IsOptional,
 } from 'class-validator';
 import { Types } from 'mongoose';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 
 
@@ -56,11 +57,58 @@ export class CreateMovieDto {
 
 }
 
-export class IdDto {
+export class UpdateMovieDto{
   @ApiProperty()
-  @IsMongoId()
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
   @IsNotEmpty()
-  id: Types.ObjectId;
+  title?: string;
+
+  @ApiProperty()
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  description?: string;
+
+  @ApiProperty({ example: '2022-10-24T15:04:14.322' })
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNotEmpty()
+  @IsDateString()
+  releaseDate?: Date;
+
+  @ApiProperty()
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNumber()
+  @IsNotEmpty()
+ // from 1 to 5 included
+  rating?: number;
+
+  @IsEnum(GenderEnum)
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNotEmpty()
+  @ApiProperty({ enum: GenderEnum })
+  gender?: GenderEnum;
+
+  @ApiProperty()
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsArray()
+  @IsNotEmpty()
+  actors?: Array<string>;
+
+  @ApiProperty()
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  @IsUrl()
+  poster?: string;
+
 }
 
 
