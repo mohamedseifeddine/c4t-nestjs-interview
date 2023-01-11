@@ -1,15 +1,14 @@
 import { Injectable, CanActivate, ExecutionContext,Request } from '@nestjs/common';
 import { UserService } from '../user/user.service';
-import { MovieService } from 'src/movie/movie.service';
 import { Reflector } from '@nestjs/core';
 import { Types } from 'mongoose';
-import { Role } from 'src/auth/interfaces/user.interface';
+import { Role } from '../auth/interfaces/user.interface';
 
 
 
 @Injectable()
 export class RoleGuard implements CanActivate {
-  constructor(private reflector: Reflector,private userService:UserService,private movieService:MovieService) {}
+  constructor(private reflector: Reflector,private userService:UserService) {}
 
   matchRoles(roles: Role[], userRole: string) {
     return roles.some((role) => role === userRole);

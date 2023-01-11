@@ -21,7 +21,7 @@ export class AuthController {
     const res = await this.authService.signUpWithEmailAndPassword(
       createUserWithEmailAndPasswordDto,
     );
-    return new ResponseObject('SIGNUP_SUCCEEDED', res);
+    return new ResponseObject('REGISTER_SUCCEEDED', res);
   }
 
   @Post('login')

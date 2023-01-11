@@ -16,7 +16,7 @@ import { Movie } from './movie.schema';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { RoleGuard } from '../guards/role.guard';
 import { Roles } from '../guards/roles.decorator';
-import { Role } from 'src/auth/interfaces/user.interface';
+import { Role } from '../auth/interfaces/user.interface';
 import { PermissionGuard } from '../guards/permission.guard';
 
 @Controller('movie')
