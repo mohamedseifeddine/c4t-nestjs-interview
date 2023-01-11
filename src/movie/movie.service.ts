@@ -18,6 +18,10 @@ export class MovieService extends AbstractService<Movie> {
   }
   protected modelName = Movie.name;
 
+  async getMovie(id:Types.ObjectId): Promise<Movie> {
+    return await this.findById(id);
+  }
+
   async createMovie(user: Types.ObjectId, movie: CreateMovieDto): Promise<Movie> {
     const data = await this.create({
       ...movie,

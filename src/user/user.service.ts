@@ -20,5 +20,8 @@ export class UserService extends AbstractService<User> {
   async createUser(createUserDto: CreateUserDto): Promise<User> {
     return this.create(createUserDto);
   }
+  async getUser(id:Types.ObjectId): Promise<User> {
+    return await this.findById(id);
+  }
 
 }
