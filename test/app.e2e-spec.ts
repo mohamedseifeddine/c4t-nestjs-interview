@@ -1,7 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { JwtModule } from '@nestjs/jwt';
+import { JwtModule,JwtService } from '@nestjs/jwt';
+import jwt_decode from "jwt-decode";
 import { JwtAuthGuard } from '../src/guards/jwt-auth.guard';
-import { MovieService } from '../src/movie/movie.service';
+import { UserService } from '../src/user/user.service';
 import { MovieModule } from '../src/movie/movie.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -18,12 +19,14 @@ import * as request from 'supertest';
 
 describe('hello test  (e2e)', () => {
   let app: any;
-  let itemService: MovieService;
+  let userService: UserService;
+  
   const id = '63528874632bc75ac5b59540';
   const user = new Types.ObjectId('6351d04551267afcf544afe2');
-  let jwtToken;
+  let jwtUserToken, jwtAdminToken,AdminMovieId, UserMovieId, userId
 
   beforeAll(async () => {
+    jest.setTimeout(10000000);
     const moduleRef: TestingModule = await Test.createTestingModule({
       imports: [
         ConfigModule.forRoot({
@@ -49,7 +52,7 @@ describe('hello test  (e2e)', () => {
                 winston.format.timestamp(),
                 winston.format.json(),
                 nestWinstonModuleUtilities.format.nestLike(
-                  'Auction_System-APIs',
+                  'C4T-APIs',
                   {
                     prettyPrint: true,
                   },
@@ -65,7 +68,7 @@ describe('hello test  (e2e)', () => {
         MovieModule,
       ],
     })
-      .overrideGuard(JwtAuthGuard)
+      .overrideGuard({JwtAuthGuard})
       .useValue({
         canActivate: (context: ExecutionContext) => {
           const req = context.switchToHttp().getRequest();
@@ -73,9 +76,10 @@ describe('hello test  (e2e)', () => {
           req.user = { user: user };
           return true;
         },
+
       })
       .compile();
-
+      userService = moduleRef.get<UserService>(UserService);
 
     app = await NestFactory.create(AppModule);
     app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
@@ -95,14 +99,16 @@ describe('hello test  (e2e)', () => {
     const response = await request(app.getHttpServer())
       .post('/auth/register')
       .send({
-        email: "seifadminNew002User@yopmail.com",
+        email: `SeifAsUserTest07@yopmail.com`,
         password: 'AAAAAAAA.77mAA',
-        role: "admin",
+        role: "user",
       })
       .expect(201);
-    jwtToken = response.body.data.access_token;
+    jwtUserToken = response.body.data.access_token;
+    let decoded : any = jwt_decode(response.body.data.access_token);
+    userId = decoded._id
     expect(response.body.message).toEqual('REGISTER_SUCCEEDED');
-  });
+  });  
   it("Can't register using the same e-mail", async () => {
     const response = await request(app.getHttpServer())
       .post('/auth/register')
@@ -126,15 +132,27 @@ describe('hello test  (e2e)', () => {
       .expect(400);
     expect(response.body.message)
   });
-  it('Login', async () => {
+
+  it('Login as admin', async () => {
     const response = await request(app.getHttpServer())
       .post('/auth/login')
       .send({
-        email: "seifUser@yopmail.com",
+        email: "SeifAsAdmin@yopmail.com",
         password: 'AAAAAAAA.77mAA',
       })
       .expect(201);
-    jwtToken = response.body.data.access_token;
+    jwtAdminToken = response.body.data.access_token;
+    expect(response.body.message).toEqual('LOGIN_SUCCEEDED');
+  });
+  it('Login as user', async () => {
+    const response = await request(app.getHttpServer())
+      .post('/auth/login')
+      .send({
+        email: 'SeifAsUser214@yopmail.com',
+        password: 'AAAAAAAA.77mAA',
+      })
+      .expect(201);
+    jwtUserToken = response.body.data.access_token;
     expect(response.body.message).toEqual('LOGIN_SUCCEEDED');
   });
   it("Can't login with wrong password", async () => {
@@ -158,7 +176,195 @@ describe('hello test  (e2e)', () => {
     expect(response.body.message).toEqual('INVALID_EMAIL');
   });
 
+  it("Can retrieve the movie list when not logged in", async () => {
+    const response = await request(app.getHttpServer())
+      .get(`/movie`)
+      .expect(200);
+    expect(response.body.message).toEqual('MOVIES_FOUND');
+  });
 
+  it("Can retrieve the movie list when not logged in as admin", async () => {
+    const response = await request(app.getHttpServer())
+      .get(`/movie`)
+      .set('Authorization', `Bearer ${jwtAdminToken}`)
+      .expect(200);
+    expect(response.body.message).toEqual('MOVIES_FOUND');
+  });
 
+  it("Can retrieve the movie list of a specific user when not logged in", async () => {
+    const response = await request(app.getHttpServer())
+      .get(`/movie/user/${userId}`)
+      .expect(200);
+    expect(response.body.message).toEqual('MOVIES_FOUND');
+  });
 
+  it("Can retrieve the movie list when not logged in as user", async () => {
+    const response = await request(app.getHttpServer())
+      .get(`/movie`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .expect(200);
+    expect(response.body.message).toEqual('MOVIES_FOUND');
+  });
+
+  it("Can't create a movie when not logged in", async () => {
+    const response = await request(app.getHttpServer())
+      .post(`/movie`)
+      .send({
+        title: "fourth movie",
+        description: "A film – also called a movie, motion picture, moving picture, picture, photoplay or (slang) flick – is a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images.",
+        releaseDate: "2022-10-24T15:04:14.322",
+        rating: 4,
+        gender: "action",
+        actors: [
+          "Brad"
+        ],
+        poster: "https://www.linkedin.com/notifications/?filter=all"
+      })
+      .expect(401);
+    expect(response.body.message).toEqual('Unauthorized');
+  });
+  it('Add movie as admin', async () => {
+    const response = await request(app.getHttpServer())
+      .post(`/movie`)
+      .set('Authorization', `Bearer ${jwtAdminToken}`)
+      .send({
+        title: "fourth movie",
+        description: "A film – also called a movie, motion picture, moving picture, picture, photoplay or (slang) flick – is a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images.",
+        releaseDate: "2022-10-24T15:04:14.322",
+        rating: 4,
+        gender: "action",
+        actors: [
+          "Brad"
+        ],
+        poster: "https://www.linkedin.com/notifications/?filter=all"
+      })
+      .expect(201);
+      AdminMovieId = response.body.data._id
+    expect(response.body.message).toEqual('MOVIE_CREATED');
+  });
+  it('Add movie as user', async () => {
+    const response = await request(app.getHttpServer())
+      .post(`/movie`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .send({
+        title: "fourth movie",
+        description: "A film – also called a movie, motion picture, moving picture, picture, photoplay or (slang) flick – is a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images.",
+        releaseDate: "2022-10-24T15:04:14.322",
+        rating: 4,
+        gender: "action",
+        actors: [
+          "Brad"
+        ],
+        poster: "https://www.linkedin.com/notifications/?filter=all"
+      })
+      .expect(201);
+      UserMovieId = response.body.data._id
+    expect(response.body.message).toEqual('MOVIE_CREATED');
+  });
+
+  it('Movie should accept right format', async () => {
+    const response = await request(app.getHttpServer())
+      .post(`/movie`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .send({
+        title: "fourth movvie",
+        description: "A film – also called a movie, motion picture, moving picture, picture, photoplay or (slang) flick – is a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images.",
+        releaseDate: "2022-10-24T15:04:14.322",
+        rating: 44, // invalid rating range
+        gender: "action",
+        actors: [
+          "Brad"
+        ],
+        poster: "https://www.linkedin.com/notifications/?filter=all"
+      })
+      .expect(400);
+    expect(response.body.message)
+  });
+
+  it('User can update own movie', async () => {
+    const response = await request(app.getHttpServer())
+      .patch(`/movie/update/${UserMovieId}`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .send({
+        title: "amazing movie",
+      })
+      .expect(200);
+    expect(response.body.message).toEqual("MOVIE_UPDATED")
+  });
+
+  it('Updating a movie should pass the field validators', async () => {
+    const response = await request(app.getHttpServer())
+      .patch(`/movie/update/${UserMovieId}`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .send({
+        title: "a",
+      })
+      .expect(400);
+    expect(response.body.message).toEqual(["Title is too short"])
+  });
+  
+  it("Can't update another user's movie when not admin", async () => {
+    const response = await request(app.getHttpServer())
+      .patch(`/movie/update/${AdminMovieId}`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .send({
+        title: "amazing movie",
+      })
+      .expect(403);
+    expect(response.body.message).toEqual("Forbidden resource")
+  });
+
+  it("Can update another user's movie when admin", async () => {
+    const response = await request(app.getHttpServer())
+      .patch(`/movie/update/${UserMovieId}`)
+      .set('Authorization', `Bearer ${jwtAdminToken}`)
+      .send({
+        title: "amazing movie",
+      })
+      .expect(200);
+    expect(response.body.message).toEqual("MOVIE_UPDATED")
+  });
+
+  it("Can delete user's own movie", async () => {
+    const response = await request(app.getHttpServer())
+      .delete(`/movie/delete/${UserMovieId}`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .expect(200);
+    expect(response.body.message).toEqual("MOVIE_DELETED")
+  });
+
+  it("Can't delete another user's movie when not admin", async () => {
+    const response = await request(app.getHttpServer())
+      .delete(`/movie/delete/${AdminMovieId}`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .expect(403);
+    expect(response.body.message).toEqual("Forbidden resource")
+  });
+
+  it('Add movie as user', async () => {
+    const response = await request(app.getHttpServer())
+      .post(`/movie`)
+      .set('Authorization', `Bearer ${jwtUserToken}`)
+      .send({
+        title: "fourth movie",
+        description: "A film – also called a movie, motion picture, moving picture, picture, photoplay or (slang) flick – is a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images.",
+        releaseDate: "2022-10-24T15:04:14.322",
+        rating: 4,
+        gender: "action",
+        actors: [
+          "Brad"
+        ],
+        poster: "https://www.linkedin.com/notifications/?filter=all"
+      })
+      .expect(201);
+      UserMovieId = response.body.data._id
+  });
+
+  it("Can delete another user's movie when admin", async () => {
+    const response = await request(app.getHttpServer())
+      .delete(`/movie/delete/${UserMovieId}`)
+      .set('Authorization', `Bearer ${jwtAdminToken}`)
+      .expect(200);
+    expect(response.body.message).toEqual("MOVIE_DELETED")
+  });
 });

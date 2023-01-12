@@ -81,6 +81,12 @@ export class UpdateMovieDto{
   @IsOptional()
   @IsString()
   @IsNotEmpty()
+  @MinLength(2, {
+    message: 'Title is too short',
+  })
+  @MaxLength(120, {
+    message: 'Title is too long',
+  })
   title?: string;
 
   @ApiProperty()
@@ -88,6 +94,12 @@ export class UpdateMovieDto{
   @IsOptional()
   @IsString()
   @IsNotEmpty()
+  @MinLength(20, {
+    message: 'Description is too short',
+  })
+  @MaxLength(500, {
+    message: 'Description is too long',
+  })
   description?: string;
 
   @ApiProperty({ example: '2022-10-24T15:04:14.322' })
@@ -102,7 +114,12 @@ export class UpdateMovieDto{
   @IsOptional()
   @IsNumber()
   @IsNotEmpty()
- // from 1 to 5 included
+  @Min(1,{
+    message: 'Rating value must be from 1 to 5',
+  })
+  @Max(5,{
+    message: 'Rating value must be from 1 to 5 ',
+  })
   rating?: number;
 
   @IsEnum(GenderEnum)

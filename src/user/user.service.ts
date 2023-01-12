@@ -23,5 +23,8 @@ export class UserService extends AbstractService<User> {
   async getUser(id:Types.ObjectId): Promise<User> {
     return await this.findById(id);
   }
+  async deleteUser(user: Types.ObjectId): Promise<User> {
+    return this.findByIdAndDelete(new Types.ObjectId(user));
+  }
 
 }

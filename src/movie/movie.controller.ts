@@ -30,7 +30,15 @@ export class MovieController {
   ): Promise<ResponseObject<Movie[]>> {
     const data = await this.movieService.find()
     return new ResponseObject('MOVIES_FOUND', data);
-  } 
+  }
+  @Get('user/:id')
+  @ApiParam({ name: 'id', type: String })
+  async getMoviesUser(
+    @Request() req,
+  ): Promise<ResponseObject<Movie[]>> {
+    const data = await this.movieService.find({created_by:req.params.id})
+    return new ResponseObject('MOVIES_FOUND', data);
+  }  
 
   @UseGuards(JwtAuthGuard)
   @Post('')
