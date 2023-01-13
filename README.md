@@ -1,76 +1,81 @@
-# Coding 4 Tomorrow NestJS Interview
 
-# How to complete the test
+<p align="center"> <a >C4T INTERVIEW </a>
+    <p align="center">
 
-## ☑️ Instructions
+</p>
 
-### 1. Create a JWT authentication system with the following routes:
-  - Register
-  - Login
+## Description
 
-  **User model:**
-  - email: string, unique
-  - password: string, min 8 characters, one uppercase, one lowercase, one number, one special character
-  - role: enum ('user', 'admin')
+Nest js Interview 
 
-### 2. CRUD of movies with the following fields:
-- title: min 2 chars, max 120 chars
-- description: min 20 chars, max 500 chars
-- releaseDate: accept only dates in the past or today
-- rating: from 1 to 5 included
-- genre: enum
-- actors name: array of strings
-- poster: image url
-- created by: the user who created the movie
+## Setup
+### Installation
 
-### 3. Access restrictions
-- Anyone can access the list of movies
-- Anyone can access the list of movie of a specific user
-- Only registered users can create a movie
-- Only the author can update or delete a movie
-- Admins can update or delete any movie
+```bash
+$ npm install
+```
 
-### 4. End to end tests
-- Auth
-  - Can register using an e-mail and a compliant password
-  - Can't register using the same e-mail as someone else
-  - Can't register using an e-mail and password that doesn't match the validator
-  - Can login using the right e-mail and right password
-  - Can't login using the right e-mail and wrong password
-  - Can't login using the wrong e-mail and right password
+### Running the app
 
-- Movies
-  - Can retrieve the movie list when not logged in
-  - Can retrieve the movie list when logged in with a user role
-  - Can retrieve the movie list when logged in with an admin role
-  - Can retrieve the movie list of a specific user when not logged in
-  - Can't create a movie when not logged in
-  - Can create a movie when logged in with a user role
-  - Can create a movie when logged in with an admin role
-  - Creating a movie should pass the field validators (title, description, etc...)
-  - Can update user's own movie
-  - Updating a movie should pass the field validators (title, description, etc...)
-  - Can't update another user's movie when not admin
-  - Can update another user's movie when admin
-  - Can delete user's own movie
-  - Can't delete another user's movie when not admin
-  - Can delete another user's movie when admin
+```bash
+# development
+$ npm run start
 
-### ✅ Conditions
-- Use MongoDB with Mongoose
-- Unit tests for each service
-- End to end test using in memory database (mongodb-memory-server)
-- API documentation with Swagger
-- DTO + validation
-- Error handling
-- Every variable must be typed using Typescript
-- **⚠️ Your code should demonstrate:**
-  - Single Source of Truth principle
-  - DRY principle
-  - KISS principle
-  - SOLID principle
-  - SOC principle
-  - LOD principle
-- **⚠️ We will carefully assess how you structured your code and the project, imagine you're working within a team. Demonstrate how rigorous you are.**
+# watch mode
+$ npm run start:dev
 
-**Good luck!** 💪
+# production mode
+$ npm run start:prod
+```
+
+### Test
+
+```bash
+
+# e2e tests
+$ npm run test:e2e
+
+```
+> **NOTE :**  Create development.env file which contains the same variable as .env.sample 
+
+
+# Details
+## Structure
+#### The backend consists of 3 Modules :
+
+- Auth module responsible for login and sign up user , compares the user's information against entries in a database to meet the authentication criteria.
+- User module responsible for profile management.
+- Movie module than contains CRUD functionalities
+
+## Abstract Concept
+
+- Even though it's a prototype-oriented  TypeScript, most of the elements are based on objects, and it utilizes Object-Oriented Programming (OOP) in its own ways.
+
+- So an abstract module is implemented containing an abstract controller, Service (contains methods), and Schema.
+
+- All modules inherit from abstract module to use common methods that will always be improved and modified with time in  order to have less  , clearer and readable code.
+
+
+## E2E Testing
+
+- A test suit for Auth is implemented to test the authentication scenarios 
+- A test suit for movie is implemented to test different scenarios 
+
+
+```bash
+$ npm run test:e2e
+```
+####  Output :
+
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="./test_output.png" /></a>
+</p>
+
+## Swagger
+
+[http://localhost:3000/docs](http://localhost:3000/docs)
+
+## Postman
+Postman json file in the racine of project
+
+## Have a great weekend, I'm looking forward to meeting you !

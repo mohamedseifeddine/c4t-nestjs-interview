@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "0ca7e7ca-e9d6-4150-9a20-27c7889fe13a",
+		"name": "code4tomorrow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6618229"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n  \"email\": \"SeifAsUser214@yopmail.com\",\n  \"password\": \"AAAAAAAA.77mAA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{  \n   \"role\": \"user\",\n  \"email\": \"SeifAsUser214@yopmail.com\",\n  \"password\": \"AAAAAAAA.77mAA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2MwMWRlOTZiNjZhZTdmYTM5Y2U5NzMiLCJ1c2VyIjoiNjNjMDFkZTk2YjY2YWU3ZmEzOWNlOTcxIiwiaWF0IjoxNjczNTM1MDA1LCJleHAiOjE2NzM2MjE0MDV9.tupLfvr_xpws0ch4W1eM1hvXijqL_2-9PXj-lRdlSDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2MwMWRlOTZiNjZhZTdmYTM5Y2U5NzMiLCJ1c2VyIjoiNjNjMDFkZTk2YjY2YWU3ZmEzOWNlOTcxIiwiaWF0IjoxNjczNTM1MDA1LCJleHAiOjE2NzM2MjE0MDV9.tupLfvr_xpws0ch4W1eM1hvXijqL_2-9PXj-lRdlSDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"fss\",\n  \"description\": \"hello movihello movihello movihello movihello movihello movihello movihello movihello movihello movihello movihello movihello movihello movihello movihello movihello movi\",\n  \"releaseDate\": \"2022-10-24T15:04:14.322\",\n  \"rating\": 4,\n  \"gender\": \"action\",\n  \"actors\": [\n    \"Brad\"\n  ],\n  \"poster\": \"https://www.linkedin.com/notifications/?filter=all\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/movie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2MwMWIwYzZiNjZhZTdmYTM5Y2U5NjgiLCJ1c2VyIjoiNjNjMDFiMGM2YjY2YWU3ZmEzOWNlOTY2IiwiaWF0IjoxNjczNTM0MjMxLCJleHAiOjE2NzM2MjA2MzF9.UMG5Kd8fKp_mO0y-pzkKxW8CpdHI1eQemyhdiusLF2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"s\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/movie/update/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie",
+						"update",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "63c01b266b66ae7fa39ce96b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2JlYWI1ZWU4OGEyOTFiODUxMjNiYjkiLCJ1c2VyIjoiNjNiZWFiNWVlODhhMjkxYjg1MTIzYmI3IiwiaWF0IjoxNjczNDQwMDk0LCJleHAiOjE2NzM1MjY0OTR9.eqch-AxWRD8FORLViAZ2M3mkaAyoVtoHGpcLmHaTkz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movie/delete/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie",
+						"delete",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "63beaac9e56a135241b3780f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie for specific user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movie/user/63bf2a32fb308f43256653b8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie",
+						"user",
+						"63bf2a32fb308f43256653b8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

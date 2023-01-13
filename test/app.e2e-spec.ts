@@ -99,7 +99,7 @@ describe('hello test  (e2e)', () => {
     const response = await request(app.getHttpServer())
       .post('/auth/register')
       .send({
-        email: `SeifAsUserTest07@yopmail.com`,
+        email: `SeifAsUserTest10@yopmail.com`,
         password: 'AAAAAAAA.77mAA',
         role: "user",
       })
