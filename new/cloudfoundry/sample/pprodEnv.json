@@ -1,0 +1,150 @@
+{
+  "VCAP_SERVICES": {
+    "internet-proxy": [
+      {
+        "binding_guid": "6c479ccc-c162-4f81-91e7-19442920b21d",
+        "binding_name": null,
+        "credentials": {
+          "host": "internet-proxy.service.internal",
+          "password": "aPassword",
+          "port": 3128,
+          "protocol": "http",
+          "uri": "http://hidden-pond:aPassword@internet-proxy.service.internal:3128",
+          "username": "hidden-pond"
+        },
+        "instance_guid": "66d86585-ea7b-4bb4-bbf0-73857ffc1686",
+        "instance_name": "internet-proxy",
+        "label": "internet-proxy",
+        "name": "internet-proxy",
+        "plan": "internet-proxy",
+        "provider": null,
+        "syslog_drain_url": null,
+        "tags": [
+          "proxy",
+          "http-proxy",
+          "https-proxy"
+        ],
+        "volume_mounts": []
+      }
+    ],
+    "user-provided": [
+      {
+        "binding_guid": "0345c79d-9652-450e-91ac-c4ebec17119f",
+        "binding_name": null,
+        "credentials": {
+          "database": "aDatabaseName",
+          "host": "10.98.229.122",
+          "hostname": "10.98.229.122",
+          "hosts": "10.98.229.122",
+          "password": "aDataBasePwd",
+          "port": "[\"27017\",\"27018\",27019\"]",
+          "uri": "mongodb://aDataBaseUserName@10.98.229.122:27017,10.98.229.122:27018,10.98.229.122:27019/aDatabaseName?replicaSet=replset&serverSelectionTryOnce=false&ssl=true&sslValidate=false&ssl_cert_reqs=CERT_NONE",
+          "username": "aDataBaseUserName"
+        },
+        "instance_guid": "87ebb69f-052d-4380-b90f-deb546b4f167",
+        "instance_name": "mongodb",
+        "label": "user-provided",
+        "name": "mongodb",
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []
+      },
+      {
+        "binding_guid": "a707f963-f4c9-4346-a20f-65a100673aee",
+        "binding_name": null,
+        "credentials": {
+          "password": "aGeolocPwd",
+          "url": "https://geoloc.preprod.orange.fr/geoloc2",
+          "user": "webxms"
+        },
+        "instance_guid": "e1ccdfbd-66ef-4931-be0c-162dae0e22e9",
+        "instance_name": "geoloc-dev",
+        "label": "user-provided",
+        "name": "geoloc-dev",
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []
+      },
+      {
+        "binding_guid": "5e614190-eee9-49f3-9098-2cf578bbec4a",
+        "binding_name": null,
+        "credentials": {
+          "odi": [
+            {
+              "clientId":"aClientId",
+              "clientSecret":"aClientSecret",
+              "id": "webxmsCP",
+              "shortCodeList": [
+                "20969",
+                "2247"
+              ]
+            },                
+           {
+              "clientId":"aClientId",
+              "clientSecret":"aClientSecret",
+              "id": "webxmsCP1",
+              "shortCodeList": [
+                "20969",
+                "2247"
+              ]
+            },   
+            {
+              "clientId":"aClientId",
+              "clientSecret":"aClientSecret",
+              "id": "webxmsCP2",
+              "shortCodeList": [
+                "20969",
+                "2247"
+              ]
+            },
+            {
+              "clientId":"aInterClientId",
+              "clientSecret":"aInterClientSecret",
+              "id": "inter",
+              "shortCodeList": []
+            },
+            {
+              "clientId":"aNoReplyClientId",
+              "clientSecret":"aNoReplyClientSecret",
+              "id": "noReply",
+              "shortCodeList": []
+            }
+          ]
+        },
+        "instance_guid": "35543245-bea2-4470-b9d2-69f99b687abd",
+        "instance_name": "odi",
+        "label": "user-provided",
+        "name": "odi",
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []  
+      }
+    ]
+
+  },
+
+  "VCAP_APPLICATION": {
+    "application_id": "f0e33056-3657-4c29-a63a-6c049e921826",
+    "application_name": "webxms-service-api",
+    "application_uris": [
+      "webxms-service-api.preprod.internal.hbx.geo.francetelecom.fr",
+      "webxms-service-api-pp.app.cf.bgl.hbx.geo.francetelecom.fr"
+    ],
+    "cf_api": "https://api.cf.bgl.hbx.geo.francetelecom.fr",
+    "limits": {
+      "fds": 16384
+    },
+    "name": "webxms-service-api",
+    "organization_id": "435d4466-e354-4569-a1de-d10be00d4f77",
+    "organization_name": "innov-webxms-staging",
+    "space_id": "3b848189-b0b3-4cc3-a602-f0dde21bec1b",
+    "space_name": "webxms",
+    "uris": [
+      "webxms-service-api.preprod.internal.hbx.geo.francetelecom.fr",
+      "webxms-service-api-pp.app.cf.bgl.hbx.geo.francetelecom.fr"
+    ],
+    "users": null
+  }
+
+
+}

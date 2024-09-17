@@ -1,0 +1,14 @@
+name: webxms-service-api
+instances: 1
+route: webxms-service-api-dev.app.cf.<CF_SITE>.hbx.geo.francetelecom.fr
+internal-route: webxms-service-api.dev.internal.hbx.geo.francetelecom.fr
+gatape-route: webxms-service-api.dev.gatape.hbx.geo.francetelecom.fr
+platform: dev
+geoloc-service: geoloc-dev
+service-mci: webxms-mci-dev
+service-loghosts: loghosts-webxms-dev
+pns-url: https://okapi-v2.api.hbx.geo.infra.ftgroup/v2/token
+pns-scope: api-valkey-v3-npd:readwrite
+pns-keepAlive: false
+pns-timeout: 1000
+smtp-host: gw.mail.gtm.hbx.geo.francetelecom.fr

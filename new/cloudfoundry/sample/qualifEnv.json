@@ -1,0 +1,166 @@
+{
+  "VCAP_SERVICES": {
+    "internet-proxy": [
+      {
+        "binding_guid": "193ab621-aae6-4744-a428-9bf0f626e244",
+        "binding_name": null,
+        "credentials": {
+          "host": "internet-proxy.service.internal",
+          "password": "aPassword",
+          "port": 3128,
+          "protocol": "http",
+          "uri": "http://aUserName:aPassword@internet-proxy.service.internal:3128",
+          "username": "aUserName"
+        },
+        "instance_guid": "85f2afb9-7a20-4631-a2c5-52bf0c1fdb86",
+        "instance_name": "internet-proxy",
+        "label": "internet-proxy",
+        "name": "internet-proxy",
+        "plan": "internet-proxy",
+        "provider": null,
+        "syslog_drain_url": null,
+        "tags": [
+          "proxy",
+          "http-proxy",
+          "https-proxy"
+        ],
+        "volume_mounts": []
+      }
+    ],
+    "user-provided": [
+      {
+        "binding_guid": "d2965844-eba3-448f-af23-eb25c30e1902",
+        "binding_name": null,
+        "credentials": {
+          "database": "aDatabase",
+          "host": "10.98.229.42",
+          "hostname": "10.98.229.42",
+          "hosts": "[ \"10.98.229.42\" ]",
+          "password": "aPassword",
+          "port": "1106",
+          "uri": " mongodb://aUser:aPassword@10.98.229.42:1106/aDatabase?autoReconnect=true&serverSelectionTryOnce=false&authSource=aDatabase&ssl=true&ssl_cert_reqs=CERT_NONE&sslValidate=false",
+          "username": "aUser"
+        },
+        "instance_guid": "aaf24f27-f3b7-4361-aa06-ea69c380c916",
+        "instance_name": "mongodb",
+        "label": "user-provided",
+        "name": "mongodb",
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []
+      },
+      {
+        "binding_guid": "2fa72509-c99d-418a-9467-e6a72ab0837a",
+        "binding_name": null,
+        "credentials": {
+          "password": "aGeolocPassword",
+          "url": "aGeolocUrl",
+          "user": "aGeolocUser"
+        },
+        "instance_guid": "f5d7e096-4852-495e-a881-34828bb7f86c",
+        "instance_name": "geoloc-dev",
+        "label": "user-provided",
+        "name": "geoloc-dev",
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []
+      },
+      {
+        "binding_guid": "5e614190-eee9-49f3-9098-2cf578bbec4a",
+        "binding_name": null,
+        "credentials": {
+          "odi": [
+            {
+              "clientId":"aClientId",
+              "clientSecret":"aClientSecret",
+              "id": "webxmsCR",
+              "shortCodeList": [
+                "20967",
+                "2240"
+              ]
+            },
+            {
+              "clientId":"aClientId1",
+              "clientSecret":"aClientSecret1",
+              "id": "webxmsCR1",
+              "shortCodeList": [
+                "20967",
+                "2240"
+              ]
+            },
+            {
+              "clientId":"aClientId2",
+              "clientSecret":"aClientSecret2",
+              "id": "webxmsCR2",
+              "shortCodeList": [
+                "20967",
+                "2240"
+              ]
+            },
+            {
+              "clientId":"aInterClientId",
+              "clientSecret":"aInterClientSecret",
+              "id": "inter",
+              "shortCodeList": []
+            },
+            {
+              "clientId":"aNoReplyClientId",
+              "clientSecret":"aNoReplyClientSecret",
+              "id": "noReply",
+              "shortCodeList": []
+            }
+          ]
+        },
+        "instance_guid": "35543245-bea2-4470-b9d2-69f99b687abd",
+        "instance_name": "odi",
+        "label": "user-provided",
+        "name": "odi",
+        "syslog_drain_url": null,
+        "tags": [],
+        "volume_mounts": []  
+      },
+      {
+        "label": "user-provided",
+        "name": "pns-valkey",
+        "tags": [],
+        "instance_guid": "73b2714e-4a65-47b5-949a-8742ca86d072",
+        "instance_name": "pns-valkey",
+        "binding_guid": "b8707844-19f6-43ad-9794-3b37d45c8afd",
+        "binding_name": null,
+        "credentials": {
+          "clientId": "aClientId",
+          "clientSecret": "aClientSecret",
+          "keepAlive": false,
+          "scope": "api-valkey-v3-npd:readwrite",
+          "timeout": 10000
+        },
+        "syslog_drain_url": null,
+        "volume_mounts": []
+      }
+    ]
+  },
+
+  "VCAP_APPLICATION": {
+    "application_id": "2a8e62ef-ec02-4da3-98d8-8231543ef510",
+    "application_name": "webxms-service-api",
+    "application_uris": [
+      "webxms-service-api.qualif.internal.hbx.geo.francetelecom.fr",
+      "webxms-service-api-qa.app.cf.mts.hbx.geo.francetelecom.fr"
+    ],
+    "cf_api": "https://api.cf.mts.hbx.geo.francetelecom.fr",
+    "limits": {
+      "fds": 16384
+    },
+    "name": "webxms-service-api",
+    "organization_id": "0ef367fd-1a3d-4adb-b9fc-c2a52945581a",
+    "organization_name": "innov-webxms-staging",
+    "space_id": "b98a0c36-dc31-4c9d-9002-8ef144d99d3b",
+    "space_name": "webxms-qa",
+    "uris": [
+      "webxms-service-api.qualif.internal.hbx.geo.francetelecom.fr",
+      "webxms-service-api-qa.app.cf.mts.hbx.geo.francetelecom.fr"
+    ],
+    "users": null
+  }
+}
+

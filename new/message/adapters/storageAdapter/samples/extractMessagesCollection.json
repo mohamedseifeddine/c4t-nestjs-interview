@@ -1,0 +1,521 @@
+[{
+  "_id": {
+    "$oid": "65b77828f9cbc10242586971"
+  },
+  "attachments": [],
+  "billed": true,
+  "billingType": "free",
+  "box": "outbox",
+  "content": "7707d5a94c72a08215928556a5d0155ff27694a4c62d2560993164f38444458252e948a4257966",
+  "ctime": {
+    "$date": "2024-01-29T10:04:24.362Z"
+  },
+  "deferred": false,
+  "deferredAck": false,
+  "deleted": true,
+  "errorCode": null,
+  "hubMessageId": "f263ea56-7797-4f43-8907-d146489081f3",
+  "messageHeader": "De : Prowebxmstb203",
+  "messageType": "sms",
+  "messagesNumber": 1,
+  "mtime": {
+    "$date": "2024-07-10T14:07:34.276Z"
+  },
+  "packets": [],
+  "read": false,
+  "receivedPackets": 0,
+  "recipient": "+33640671688",
+  "replyNotification": false,
+  "replyType": "inbox",
+  "sendingDate": {
+    "$date": "2024-01-29T10:04:24.531Z"
+  },
+  "size": 11,
+  "status": "sent",
+  "subject": "",
+  "user": {
+    "$oid": "60ae8203bf6f0701e08b21e8"
+  }
+},
+  {
+    "_id": {
+      "$oid": "65b7784df9cbc10242586976"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "b13e388f481c9f8b2bdb2afbb16d0b5b698b271261c399a5cbb301063d8321266b5aa86925c2d9f2f4639465e61c2777a3",
+    "ctime": {
+      "$date": "2024-01-29T10:05:01.354Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": true,
+    "errorCode": null,
+    "hubMessageId": "2b996546-3df6-4fe7-9987-7da1e3d6d212",
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-07-10T14:07:34.276Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33640671688",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "sendingDate": {
+      "$date": "2024-01-29T10:05:01.528Z"
+    },
+    "size": 21,
+    "status": "sent",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65b77885f9cbc1024258697a"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "5d75d02efce5aedf43368a0cd0b914fad639aaf54fc6d5b790d89af90bb89c89b305ea25b6c2b145e235a5c28f7159dbd6457e375ce3b94ff3589c7fafac752f",
+    "ctime": {
+      "$date": "2024-01-29T10:05:57.407Z"
+    },
+    "deferred": true,
+    "deferredAck": false,
+    "deferredDate": {
+      "$date": "2024-01-29T11:00:00.000Z"
+    },
+    "deleted": true,
+    "errorCode": null,
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-07-10T14:07:34.276Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33640671688",
+    "replyNotification": false,
+    "replyType": "noreply",
+    "size": 36,
+    "status": "deferred",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65b77897f9cbc1024258697e"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "2969724c6551b49bdb4e0c7699e5bc89c025819d8cdacafc08dfe8c39e1a452cc66f7fda5af7fb4ea1cde93c783410985822419005a210664c51ad058254a2a1",
+    "ctime": {
+      "$date": "2024-01-29T10:06:15.055Z"
+    },
+    "deferred": true,
+    "deferredAck": false,
+    "deferredDate": {
+      "$date": "2024-01-29T11:00:00.000Z"
+    },
+    "deleted": true,
+    "errorCode": null,
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-07-10T14:07:34.276Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33640671688",
+    "replyNotification": false,
+    "replyType": "noreply",
+    "size": 36,
+    "status": "deferred",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65b7acdff103270231d163a6"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "612f073563615a4f1ad2f77a908a752e7154af4eb21392490b65078edbcac5f3a2bd4f0df7c02cfcebbf87acb6f923d2",
+    "ctime": {
+      "$date": "2024-01-29T13:49:19.035Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": true,
+    "errorCode": "XMS_BROKER_ERROR",
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-07-10T14:07:34.276Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33640671688",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "size": 20,
+    "status": "sending",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65b7c46df103270231d163b8"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "802407b989d3fe608786ecd9c4d093196b4c8283c5d265bfd243eefb8477e8875be47dcb641274e1f3c880ee27172828de8674fb87671f56e0",
+    "ctime": {
+      "$date": "2024-01-29T15:29:49.453Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": true,
+    "errorCode": null,
+    "hubMessageId": "03c1b5e7-b2f2-420b-b232-fb24a7de4649",
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-07-10T14:07:34.276Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33640671688",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "sendingDate": {
+      "$date": "2024-01-29T15:29:49.872Z"
+    },
+    "size": 29,
+    "status": "sent",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65b7c48af103270231d163bb"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "4a79611826f75bf4a1a6f3112e0551412f7cf3fe22ddea7868171d0efcd763b7f939deafec877b4eca5012d01e5cff0757a75b074c73ab0a785c1a429ff444d1",
+    "ctime": {
+      "$date": "2024-01-29T15:30:18.752Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": true,
+    "errorCode": "XMS_BROKER_ERROR",
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-07-10T14:07:34.276Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33640671688",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "size": 36,
+    "status": "sending",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "668e97d7f3a1fb023055c1e2"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "f8e0ce4272f5f0f8d56bcfc8879691f73272cc084f6cc36adf896cb9dbd6ad92a6d41489499abff4",
+    "ctime": {
+      "$date": "2024-07-10T14:16:55.552Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": false,
+    "errorCode": null,
+    "hubMessageId": "e5e9bc30-d3e5-44a2-84ec-a3c39ea66d73",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-07-10T14:16:55.777Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33640671688",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "sendingDate": {
+      "$date": "2024-07-10T14:16:55.777Z"
+    },
+    "size": 12,
+    "status": "sent",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "668e9c07f3a1fb023055c1e6"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "f23f057948f28168974de93fb3476d378379013b82c15d2081cdd5e2dbbb085c1eb024c0b639a9",
+    "ctime": {
+      "$date": "2024-07-10T14:34:47.293Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": false,
+    "errorCode": null,
+    "hubMessageId": "9d24faf6-f671-47e9-abde-fe5bbe35f76f",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-07-10T14:34:47.597Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33640671688",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "sendingDate": {
+      "$date": "2024-07-10T14:34:47.596Z"
+    },
+    "size": 11,
+    "status": "sent",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "668fee67372f319643aed844"
+    },
+    "recipient": "+33640671688",
+    "user": "60ae8203bf6f0701e08b21e8",
+    "deferred": false,
+    "box": "outbox",
+    "size": 17,
+    "status": "sending",
+    "errorCode": "Something went wrong",
+    "replyType": "inbox",
+    "content": "ed0052c61d79cad1d72505d02a664f9c034d93768ca00105da4cc4b18608d432de6d8c0b9deb2826da59154f4e",
+    "messageHeader": "De : Emeric",
+    "hubMessageId": "",
+    "deleted": false,
+    "ctime": {
+      "$date": "2024-07-11T14:38:31.104Z"
+    },
+    "mtime": {
+      "$date": "2024-07-11T14:38:31.209Z"
+    },
+    "read": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65b7a9e9f9cbc10242586989"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "b662c66491262f313b07e8de483e53220b54f0df1ade4da801080aff4922a9ad4bf528b0809ad4",
+    "ctime": {
+      "$date": "2024-01-29T13:36:41.764Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": false,
+    "errorCode": null,
+    "hubMessageId": "ef1b21ba-4ae6-4f22-bb2c-3ad1d97910ab",
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-01-29T13:36:42.044Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33786073715",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "sendingDate": {
+      "$date": "2024-01-29T13:36:42.044Z"
+    },
+    "size": 11,
+    "status": "sent",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65b7b3aef103270231d163ab"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "f400f28717f83f804830af1d917f0b2f1ad04d2f9430bfedb6ff75aac670e8382926",
+    "ctime": {
+      "$date": "2024-01-29T14:18:22.643Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": false,
+    "errorCode": null,
+    "hubMessageId": "240e5621-6f71-4377-a33e-50b8ec7287e8",
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-01-29T14:18:22.917Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33786073715",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "sendingDate": {
+      "$date": "2024-01-29T14:18:22.917Z"
+    },
+    "size": 6,
+    "status": "sent",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65b8c78ec65cd502311f9402"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "2d19b601867a39d9829fb7f08b732b0ffdcf5d9f9599628185fb99224e14a4cbc8551474",
+    "ctime": {
+      "$date": "2024-01-30T09:55:26.884Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": false,
+    "errorCode": null,
+    "hubMessageId": "ce6cfdda-9e0c-4f6b-8c3d-d322e0da9d68",
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-01-30T09:55:27.335Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+33786073715",
+    "replyNotification": false,
+    "replyType": "inbox",
+    "sendingDate": {
+      "$date": "2024-01-30T09:55:27.334Z"
+    },
+    "size": 8,
+    "status": "sent",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65d5d0edc0f0210245bea3b6"
+    },
+    "attachments": [],
+    "billed": true,
+    "billingType": "free",
+    "box": "outbox",
+    "content": "4b06c863218a04a081baed2160e38218adfe6d2f623fb30d87a38f9ebd0162c8828acb17adff9cfc",
+    "ctime": {
+      "$date": "2024-02-21T10:31:09.480Z"
+    },
+    "deferred": false,
+    "deferredAck": false,
+    "deleted": false,
+    "errorCode": null,
+    "hubMessageId": "5e21d3e5-abb3-4f1b-9fbc-9d446cefad93",
+    "messageHeader": "De : Prowebxmstb203",
+    "messageType": "sms",
+    "messagesNumber": 1,
+    "mtime": {
+      "$date": "2024-02-21T10:31:09.741Z"
+    },
+    "packets": [],
+    "read": false,
+    "receivedPackets": 0,
+    "recipient": "+21694926562",
+    "replyNotification": false,
+    "replyType": "noreply",
+    "sendingDate": {
+      "$date": "2024-02-21T10:31:09.741Z"
+    },
+    "size": 12,
+    "status": "sent",
+    "subject": "",
+    "user": {
+      "$oid": "60ae8203bf6f0701e08b21e8"
+    }
+  }
+]

@@ -1,0 +1,15 @@
+name: webxms-service-api
+instances: 1
+route: webxms-service-api-pp.app.cf.<CF_SITE>.hbx.geo.francetelecom.fr
+internal-route: webxms-service-api.preprod.internal.hbx.geo.francetelecom.fr
+gatape-route: webxms-service-api.preprod.gatape.hbx.geo.francetelecom.fr
+geoloc-service: geoloc-dev
+platform: preprod
+service-mci: webxms-mci-preprod
+service-loghosts: loghosts-webxms-preprod
+pns-url: https://okapi-v2.api.hbx.geo.infra.ftgroup/v2/token
+pns-scope: api-valkey-v3-npd:readwrite
+pns-keepAlive: false
+pns-timeout: 1000
+smtp-host: gw.mail.gtm.hbx.geo.francetelecom.fr
+in8-service-url: http://apipro-me1.vente.fr.intraorange:8080/webmail/xmlApi
